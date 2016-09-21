@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921094941) do
+ActiveRecord::Schema.define(version: 20160921143505) do
+
+  create_table "generated_images", force: :cascade do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "content_image_id"
+    t.integer  "style_image_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["content_image_id"], name: "index_generated_images_on_content_image_id"
+    t.index ["style_image_id"], name: "index_generated_images_on_style_image_id"
+  end
 
   create_table "source_images", force: :cascade do |t|
     t.datetime "created_at",         null: false

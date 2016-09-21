@@ -1,0 +1,25 @@
+%h1 Listing generated_images
+
+%table.table
+  %thead
+    %tr
+      %th Image
+      %th Content image
+      %th Style image
+      %th
+      %th
+      %th
+
+  %tbody
+    - @generated_images.each do |generated_image|
+      %tr
+        %td= image_tag generated_image.image(:thumb)
+        %td= image_tag generated_image.content_image.image(:thumb)
+        %td= image_tag generated_image.style_image.image(:thumb)
+        %td= link_to 'Show', generated_image
+        %td= link_to 'Edit', edit_generated_image_path(generated_image)
+        %td= link_to 'Destroy', generated_image, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Generated image', new_generated_image_path

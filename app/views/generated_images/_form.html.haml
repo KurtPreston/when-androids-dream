@@ -1,0 +1,16 @@
+= form_for @generated_image do |f|
+  - if @generated_image.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@generated_image.errors.count, "error")} prohibited this generated_image from being saved:"
+      %ul
+        - @generated_image.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :content_image_id
+    = f.collection_select :content_image_id, SourceImage.all, :id, :id
+  .field
+    = f.label :style_image_id
+    = f.collection_select :style_image_id, SourceImage.all, :id, :id
+  .actions
+    = f.submit 'Save'

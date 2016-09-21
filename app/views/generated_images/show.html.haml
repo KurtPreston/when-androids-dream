@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Image:
+  = @generated_image.image
+%p
+  %b Content image:
+  = @generated_image.content_image
+%p
+  %b Style image:
+  = @generated_image.style_image
+
+= link_to 'Edit', edit_generated_image_path(@generated_image)
+\|
+= link_to 'Back', generated_images_path
