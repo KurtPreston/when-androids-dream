@@ -1,0 +1,2 @@
+class SourceImage < ApplicationRecord
+end
