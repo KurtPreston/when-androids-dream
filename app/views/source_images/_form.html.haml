@@ -1,10 +1,12 @@
-= form_for @source_image do |f|
+= form_for @source_image, html: { multipart: true } do |f|
   - if @source_image.errors.any?
     #error_explanation
       %h2= "#{pluralize(@source_image.errors.count, "error")} prohibited this source_image from being saved:"
       %ul
         - @source_image.errors.full_messages.each do |msg|
           %li= msg
+  .field
+    = f.file_field :image, accept: 'image/png,image/gif,image/jpeg'
 
   .actions
     = f.submit 'Save'
