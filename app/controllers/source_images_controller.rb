@@ -53,6 +53,6 @@ class SourceImagesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def source_image_params
-      params.require(:source_image).permit(:image)
+      params.require(:source_image).permit(:image, :upload_url)
     end
 end

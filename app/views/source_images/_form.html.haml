@@ -6,7 +6,12 @@
         - @source_image.errors.full_messages.each do |msg|
           %li= msg
   .field
+    = f.label :image, "Upload an image"
     = f.file_field :image, accept: 'image/png,image/gif,image/jpeg'
+
+  .field
+    = f.label :upload_url, "Or enter the URL of an image"
+    = f.text_field :upload_url
 
   .actions
     = f.submit 'Save'
