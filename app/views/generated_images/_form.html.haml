@@ -6,11 +6,30 @@
         - @generated_image.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :content_image_id
-    = f.collection_select :content_image_id, SourceImage.all, :id, :id
-  .field
-    = f.label :style_image_id
-    = f.collection_select :style_image_id, SourceImage.all, :id, :id
+  .row
+    .col-md-6.field
+      %h2 Content
+      = f.hidden_field :content_image_id
+      - @source_images.each do |source_image|
+        %a{href: '#', data: {image_id: source_image.id}}
+          = image_tag source_image.image.url(:thumb)
+    .col-md-6.field
+      %h2 Style
+      = f.hidden_field :style_image_id
+      - @source_images.each do |source_image|
+        %a{href: '#', data: {image_id: source_image.id}}
+          = image_tag source_image.image.url(:thumb)
   .actions
-    = f.submit 'Save'
+    = f.submit 'Generate', class: 'btn btn-primary'
+
+:javascript
+  $(document).ready(function() {
+    $('form#new_generated_image a[data-image-id]').click(function() {
+      var id = $(this).data('imageId');
+      var $field = $(this).closest('.field');
+      $field.find('input').val(id);
+      $field.find('img').removeClass('selected');
+      $(this).find('img').addClass('selected');
+      return false;
+    });
+  });

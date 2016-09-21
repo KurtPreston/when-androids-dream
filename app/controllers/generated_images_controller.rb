@@ -13,6 +13,7 @@ class GeneratedImagesController < ApplicationController
   # GET /generated_images/new
   def new
     @generated_image = GeneratedImage.new
+    @source_images = SourceImage.all
   end
 
   # GET /generated_images/1/edit

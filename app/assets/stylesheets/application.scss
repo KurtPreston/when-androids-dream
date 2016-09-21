@@ -16,3 +16,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.selected {
+  border: 2px solid blue;
+}
