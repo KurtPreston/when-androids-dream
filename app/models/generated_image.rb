@@ -3,7 +3,14 @@ class GeneratedImage < ApplicationRecord
   belongs_to :content_image, class_name: 'SourceImage'
   belongs_to :style_image, class_name: 'SourceImage'
 
-  validates_presence_of :content_image, :style_image
+  validates_presence_of :content_image, :style_image, :iterations
+  validates :iterations,
+    presence: true,
+    numericality: {
+      only_integer: true,
+      greated_than_or_equal_to: 1,
+      less_than_or_equal_to: 1000
+    }
   validates_attachment :image,
     size: { in: 0..20.megabytes },
     content_type: {content_type: /\Aimage\/.*\z/}

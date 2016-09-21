@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921143505) do
+ActiveRecord::Schema.define(version: 20160921231747) do
 
   create_table "generated_images", force: :cascade do |t|
     t.string   "image_file_name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160921143505) do
     t.integer  "style_image_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "iterations"
     t.index ["content_image_id"], name: "index_generated_images_on_content_image_id"
     t.index ["style_image_id"], name: "index_generated_images_on_style_image_id"
   end

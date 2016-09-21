@@ -20,6 +20,8 @@
         %a{href: '#', data: {image_id: source_image.id}}
           = image_tag source_image.image.url(:thumb)
   .actions
+    = f.label :iterations
+    = f.number_field :iterations, min: 1, max: 1000
     = f.submit 'Generate', class: 'btn btn-primary'
 
 :javascript

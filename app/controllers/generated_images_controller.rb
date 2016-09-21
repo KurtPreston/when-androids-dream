@@ -12,7 +12,7 @@ class GeneratedImagesController < ApplicationController
 
   # GET /generated_images/new
   def new
-    @generated_image = GeneratedImage.new
+    @generated_image = GeneratedImage.new(iterations: 500)
     @source_images = SourceImage.all
   end
 
@@ -54,6 +54,6 @@ class GeneratedImagesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def generated_image_params
-      params.require(:generated_image).permit(:image, :content_image_id, :style_image_id)
+      params.require(:generated_image).permit(:image, :content_image_id, :style_image_id, :iterations)
     end
 end
