@@ -1,24 +1,16 @@
-# README
+# When androids dream...
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Neural network-based image style transfer using the [neural-style](https://github.com/jcjohnson/neural-style) library
 
-Things you may want to cover:
+![screenshot](/screenshot.png)
 
-* Ruby version
+## Set-up
 
-* System dependencies
+This library is a simple Rails-based web application allowing a user to upload images and select images to be stylistically blended.
 
-* Configuration
+The heavy lifting is performed by another server, which must have [neural-style](https://github.com/jcjohnson/neural-style) installed.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+By default, the following are assumed:
+* The image-processing server has neural-style installed to the directory ```/home/ubuntu/Code/neural-style```
+  * Walk through the full installation guide [here](https://github.com/jcjohnson/neural-style/blob/master/INSTALL.md]).
+* The webserver has SSH access to the server, aliased by the name **neuralstyle**

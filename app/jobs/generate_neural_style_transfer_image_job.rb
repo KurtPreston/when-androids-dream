@@ -1,7 +1,7 @@
 class GenerateNeuralStyleTransferImageJob < ApplicationJob
   queue_as :default
 
-  SSH_SERVER_ADDRESS = 'video'
+  SSH_SERVER_ADDRESS = 'neuralstyle'
   SSH_SERVER_NEURAL_STYLE_PATH = '/home/ubuntu/Code/neural-style'
   SSH_SERVER_INPUT_PATH = '/home/ubuntu/Art'
 
