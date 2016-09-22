@@ -25,7 +25,7 @@ class GeneratedImagesController < ApplicationController
     @generated_image = GeneratedImage.new(generated_image_params)
 
     if @generated_image.save
-      redirect_to @generated_image, notice: 'Generated image was successfully created.'
+      redirect_to generated_images_path, notice: 'Generated image was successfully created.'
     else
       render :new
     end

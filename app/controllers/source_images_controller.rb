@@ -24,7 +24,7 @@ class SourceImagesController < ApplicationController
     @source_image = SourceImage.new(source_image_params)
 
     if @source_image.save
-      redirect_to @source_image, notice: 'Source image was successfully created.'
+      redirect_to new_generated_image_path, notice: 'Source image was successfully created.'
     else
       render :new
     end

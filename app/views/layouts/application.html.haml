@@ -27,6 +27,7 @@
                   library
             %ul.nav.navbar-nav.navbar-right
               %li
-                %form
-                  %a.btn.btn-primary.navbar-btn{href: new_generated_image_path} + New
+                - unless request.path == new_generated_image_path
+                  %form
+                    %a.btn.btn-primary.navbar-btn{href: new_generated_image_path} + New
       = yield

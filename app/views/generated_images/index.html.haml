@@ -13,7 +13,11 @@
   %tbody
     - @generated_images.each do |generated_image|
       %tr
-        %td= image_tag generated_image.image(:thumb)
+        %td
+          - if generated_image.image_file_name.present?
+            = image_tag generated_image.image(:thumb)
+          - else
+            Generating image.  Please wait...
         %td= image_tag generated_image.content_image.image(:thumb)
         %td= image_tag generated_image.style_image.image(:thumb)
         %td= link_to 'Show', generated_image

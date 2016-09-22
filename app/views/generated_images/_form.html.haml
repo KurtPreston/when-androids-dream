@@ -13,15 +13,23 @@
       - @source_images.each do |source_image|
         %a{href: '#', data: {image_id: source_image.id}}
           = image_tag source_image.image.url(:thumb)
+      %div
+        = link_to '+ Add new image', new_source_image_path, class: 'btn'
     .col-md-6.field
       %h2 Style
       = f.hidden_field :style_image_id
       - @source_images.each do |source_image|
         %a{href: '#', data: {image_id: source_image.id}}
           = image_tag source_image.image.url(:thumb)
+      %div
+        = link_to '+ Add new image', new_source_image_path, class: 'btn'
   .actions
-    = f.label :iterations
-    = f.number_field :iterations, min: 1, max: 1000
+    .field
+      .input-group{style: 'width: 150px; margin: 0 auto;'}
+        = f.number_field :iterations, min: 1, max: 1000, class: 'form-control', width: 100
+        = f.label :iterations, class: 'input-group-addon'
+      %p
+        %small Please allow ~2 minutes per 100 iterations
     = f.submit 'Generate', class: 'btn btn-primary'
 
 :javascript
