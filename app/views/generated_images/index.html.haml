@@ -2,13 +2,18 @@
   %tbody
     - @generated_images.each do |generated_image|
       %tr
-        %td= image_tag generated_image.content_image.image(:medium)
+        %td
+          = link_to generated_image.content_image.image.url, target: '_blank' do
+            = image_tag generated_image.content_image.image(:medium)
         %td +
-        %td= image_tag generated_image.style_image.image(:medium)
+        %td
+          = link_to generated_image.style_image.image.url, target: '_blank' do
+            = image_tag generated_image.style_image.image(:medium)
         %td =
         %td
           - if generated_image.image_file_name.present?
-            = image_tag generated_image.image(:medium)
+            = link_to generated_image.image.url, target: '_blank' do
+              = image_tag generated_image.image(:medium)
           - else
             Generating image.  Please wait...
         -# %td= link_to 'Show', generated_image
