@@ -1,25 +1,16 @@
-%h1 Listing generated images
-
-%table.table
-  %thead
-    %tr
-      %th Image
-      %th Content image
-      %th Style image
-      %th
-      %th
-      %th
-
+%table.table.gallery
   %tbody
     - @generated_images.each do |generated_image|
       %tr
+        %td= image_tag generated_image.content_image.image(:medium)
+        %td +
+        %td= image_tag generated_image.style_image.image(:medium)
+        %td =
         %td
           - if generated_image.image_file_name.present?
-            = image_tag generated_image.image(:thumb)
+            = image_tag generated_image.image(:medium)
           - else
             Generating image.  Please wait...
-        %td= image_tag generated_image.content_image.image(:thumb)
-        %td= image_tag generated_image.style_image.image(:thumb)
-        %td= link_to 'Show', generated_image
-        %td= link_to 'Edit', edit_generated_image_path(generated_image)
-        %td= link_to 'Destroy', generated_image, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        -# %td= link_to 'Show', generated_image
+        -# %td= link_to 'Edit', edit_generated_image_path(generated_image)
+        -# %td= link_to 'Destroy', generated_image, :method => :delete, :data => { :confirm => 'Are you sure?' }

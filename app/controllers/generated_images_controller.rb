@@ -3,7 +3,7 @@ class GeneratedImagesController < ApplicationController
 
   # GET /generated_images
   def index
-    @generated_images = GeneratedImage.all
+    @generated_images = GeneratedImage.order('created_at DESC')
   end
 
   # GET /generated_images/1

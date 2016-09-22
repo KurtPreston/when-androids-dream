@@ -17,10 +17,24 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.gallery.table {
+  font-size: 40px;
+  td {
+    vertical-align: middle;
+  }
+  img {
+    width: 100%;
+  }
+}
+
 .selected {
   border: 2px solid blue;
 }
 
 body {
   text-align: center;
+}
+
+input[type='file'] {
+  display: inline-block;
 }
