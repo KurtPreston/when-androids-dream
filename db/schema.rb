@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20160921231747) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "generated_images", force: :cascade do |t|
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 20160921231747) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "iterations"
-    t.index ["content_image_id"], name: "index_generated_images_on_content_image_id"
-    t.index ["style_image_id"], name: "index_generated_images_on_style_image_id"
+    t.index ["content_image_id"], name: "index_generated_images_on_content_image_id", using: :btree
+    t.index ["style_image_id"], name: "index_generated_images_on_style_image_id", using: :btree
   end
 
   create_table "source_images", force: :cascade do |t|
@@ -35,4 +38,6 @@ ActiveRecord::Schema.define(version: 20160921231747) do
     t.datetime "image_updated_at"
   end
 
+  add_foreign_key "generated_images", "source_images", column: "content_image_id"
+  add_foreign_key "generated_images", "source_images", column: "style_image_id"
 end
