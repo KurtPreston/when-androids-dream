@@ -27,8 +27,14 @@
   }
 }
 
-.selected {
-  border: 2px solid blue;
+.thumbs {
+  img {
+    margin: 5px;
+  }
+
+  .selected {
+    border: 2px solid blue;
+  }
 }
 
 body {

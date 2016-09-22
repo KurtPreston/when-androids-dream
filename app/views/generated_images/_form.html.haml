@@ -10,17 +10,19 @@
     .col-md-6.field
       %h2 Content
       = f.hidden_field :content_image_id
-      - @source_images.each do |source_image|
-        %a{href: '#', data: {image_id: source_image.id}}
-          = image_tag source_image.image.url(:thumb)
+      .thumbs
+        - @source_images.each do |source_image|
+          %a{href: '#', data: {image_id: source_image.id}}
+            = image_tag source_image.image.url(:thumb)
       %div
         = link_to '+ Add new image', new_source_image_path, class: 'btn'
     .col-md-6.field
       %h2 Style
-      = f.hidden_field :style_image_id
-      - @source_images.each do |source_image|
-        %a{href: '#', data: {image_id: source_image.id}}
-          = image_tag source_image.image.url(:thumb)
+      .thumbs
+        = f.hidden_field :style_image_id
+        - @source_images.each do |source_image|
+          %a{href: '#', data: {image_id: source_image.id}}
+            = image_tag source_image.image.url(:thumb)
       %div
         = link_to '+ Add new image', new_source_image_path, class: 'btn'
   .actions
