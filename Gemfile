@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 
 gem 'paperclip'
+gem 'aws-sdk', '~> 2.3'
 gem 'colorize'
 
 group :development, :test do
